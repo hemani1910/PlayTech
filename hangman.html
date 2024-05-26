@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PlayTech :Hangman</title>
+    <style>
+      body {
+        background-color: black;
+        margin: 0; /* Remove default margin */
+        padding: 0; /* Remove default padding */
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between; /* Align items to both ends */
+        align-items: center;
+        padding: 15px 25px; /* Add padding for spacing */
+      }
+
+      h1 {
+        color: aliceblue;
+        margin: 0; /* Remove default margin */
+      }
+
+      button {
+        font-family: var(--font-title);
+        font-size: 1rem;
+        background-color: white;
+        color: black;
+        padding: 8px 15px; /* Add padding for button size */
+        border: none; /* Remove default border */
+        cursor: pointer; /* Add cursor pointer */
+      }
+      .glow-on-hover { 
+width: 220px; 
+height: 60px; 
+border: none; 
+outline: none; 
+color: #fff; 
+background: #111; 
+cursor: pointer; 
+position: relative; 
+z-index: 0; 
+border-radius: 10px; 
+overflow: hidden; 
+} 
+.glow-on-hover:before  { 
+content: ''; 
+background: linear-gradient(45deg, #ff0000, #00ffd5, #002bff, black); 
+position: absolute; 
+top: -2px; 
+left: -2px; 
+background-size: 400%; 
+z-index: -1; 
+filter: blur(5px); 
+width: calc(100% + 4px); 
+height: calc(100% + 4px); 
+animation: glowing 20s linear infinite; 
+} 
+@keyframes glowing { 
+0% { 
+  background-position: 0 0; 
+} 
+50% { 
+  background-position: 400% 0; 
+} 
+100% { 
+  background-position: 0 0; 
+} 
+} 
+.glow-on-hover:active {
+color: #000; 
+} 
+.glow-on-hover:active:after { 
+background: transparent; 
+} 
+
+      .container {
+        display: flex;
+        flex-wrap: wrap; /* Allow boxes to wrap */
+        justify-content: space-between; /* Align boxes evenly */
+        padding: 20px; /* Add padding around boxes */
+      }
+
+      .box {
+        height: 1250px;
+        width: 45%; /* Set box width */
+        padding: 20px; /* Add padding inside boxes */
+        background-color: rgb(0, 0, 0);
+        border: 0.4px solid rgb(255, 255, 255); /* Add border */
+        margin-bottom: 20px; /* Add space between boxes */
+      }
+
+      .box p{
+        color: #0dd3da;
+        margin: 0; /* Remove default margin */
+      }
+      .box pre{
+        color: aliceblue;
+      }
+      .box1{
+        height: 1000px;
+        width: 100%; /* Set box width */
+        padding: 20px; /* Add padding inside boxes */
+        background-color: rgb(0, 0, 0);
+        border: 0.4px solid rgb(255, 255, 255); /* Add border */
+        margin-bottom: 20px; /* Add space between boxes */
+      }
+      .box1 p{
+        color: #0dd3da;
+        margin: 0; /* Remove default margin */
+      }
+      .box1 pre{
+        color: aliceblue;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>CODE</h1>
+      <div>
+        <button class="glow-on-hover" onclick="location.href='https://replit.com/@HemaniChauhan/0778Day-7-HangmanFU'">RUN</button>
+        <button class="glow-on-hover" onclick="location.href='hangman_doc.html'">DOCUMENTATION</button>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="box1">
+        <p>main.py </p>
+        <pre>
+            import random
+
+            #TODO-1: - Update the word list to use the 'word_list' from hangman_words.py
+            #Delete this line: word_list = ["ardvark", "baboon", "camel"]
+            from hangman_words import word_list
+            
+            chosen_word = random.choice(word_list)
+            word_length = len(chosen_word)
+            
+            end_of_game = False
+            lives = 6
+            
+            #TODO-3: - Import the logo from hangman_art.py 
+            #print it at the start of the game.
+            from hangman_art import logo
+            print(logo)
+            
+            #Testing code
+            # print(f'Pssst, the solution is {chosen_word}.')
+            
+            #Create blanks
+            display = []
+            for _ in range(word_length):
+                display += "_"
+            
+            while not end_of_game:
+                guess = input("Guess a letter: ").lower()
+            
+                #TODO-4: - If the user has entered a letter they've already guessed 
+                #print the letter and let them know.
+                if guess in display:
+                    print(f"You've already guessed {guess}")
+            
+                #Check guessed letter
+                for position in range(word_length):
+                    letter = chosen_word[position]
+                    #print(f"Current position: {position}\n Current letter: {letter}\n Guessed letter: {guess}")
+                    if letter == guess:
+                        display[position] = letter
+            
+                #Check if user is wrong.
+                if guess not in chosen_word:
+                    #TODO-5: - If the letter is not in the chosen_word, print out the letter 
+                    #let them know it's not in the word.
+                    print(f"You guessed {guess}, that's not in the word. You lose a life.")
+                    
+                    lives -= 1
+                    if lives == 0:
+                        end_of_game = True
+                        print("You lose.")
+            
+                #Join all the elements in the list and turn it into a String.
+                print(f"{' '.join(display)}")
+            
+                #Check if user has got all letters.
+                if "_" not in display:
+                    end_of_game = True
+                    print("You win.")
+            
+                #TODO-2: - Import the stages from hangman_art.py  
+                #make this error go away.
+                from hangman_art import stages
+                print(stages[lives])
+</pre>
+       
+      </div>
+      <div class="box">
+        <p>hangman_words.py</p>
+        <pre>
+            word_list = [
+            'abruptly', 
+            'absurd', 
+            'avenue', 
+            'awkward', 
+            'azure', 
+            'banjo', 
+            'buffalo', 
+            'buzzing', 
+            'buzzwords',  
+            'crypt',  
+            'cycle',
+            'duplex',  
+            'equip', 
+            'faking', 
+            'fishhook', 
+            'funny',
+            'galaxy', 
+            'gossip', 
+            'icebox', 
+            'injury', 
+            'ivory', 
+            'ivy', 
+            'jackpot', 
+            'jaundice', 
+            'jawbreaker', 
+            'jazzy', 
+            'jelly', 
+            'jigsaw', 
+            'jockey', 
+            'jogging', 
+            'joking', 
+            'joyful', 
+            'juicy', 
+            'jukebox', 
+            'jumbo', 
+            'keyhole', 
+            'khaki', 
+            'kilobyte', 
+            'knapsack', 
+            'larynx', 
+            'lengths', 
+            'lucky', 
+            'luxury', 
+            'matrix', 
+            'microwave', 
+            'mnemonic', 
+            'nightclub', 
+            'nowadays', 
+            'ovary', 
+            'oxidize', 
+            'oxygen', 
+            'pajama', 
+            'peekaboo', 
+            'pixel', 
+            'pneumonia', 
+            'puppy', 
+            'quartz', 
+            'queue', 
+            'quiz', 
+            'quizzes', 
+            'rhythm', 
+            'rickshaw', 
+            'scratch', 
+            'shiv', 
+            'sphinx', 
+            'spritz', 
+            'staff', 
+            'strength', 
+            'stretch', 
+            'subway', 
+            'syndrome', 
+            'transcript',
+            'unknown', 
+            'unworthy', 
+            'unzip',
+            'wave', 
+            'wavy', 
+            'whomever', 
+            'wizard', 
+            ]   
+        </pre>
+      </div>
+      <div class="box">
+        <p>hangman_art.py</p>
+        <pre>
+            stages = ['''
+            +---+
+            |   |
+            O   |
+           /|\  |
+           / \  |
+                |
+          =========
+          ''', '''
+            +---+
+            |   |
+            O   |
+           /|\  |
+           /    |
+                |
+          =========
+          ''', '''
+            +---+
+            |   |
+            O   |
+           /|\  |
+                |
+                |
+          =========
+          ''', '''
+            +---+
+            |   |
+            O   |
+           /|   |
+                |
+                |
+          =========''', '''
+            +---+
+            |   |
+            O   |
+            |   |
+                |
+                |
+          =========
+          ''', '''
+            +---+
+            |   |
+            O   |
+                |
+                |
+                |
+          =========
+          ''', '''
+            +---+
+            |   |
+                |
+                |
+                |
+                |
+          =========
+          ''']
+          
+          logo = ''' 
+           _                                             
+          | |                                            
+          | |_   _ _ _ _   _ _ _ _ __   _ _ _ _  
+          | '_ \ / ` | ' \ / ` | ' ` _ \ / ` | ' \ 
+          | | | | (| | | | | (| | | | | | | (_| | | | |
+          || ||\_,|| ||\_, || || ||\_,|| ||
+                              __/ |                      
+                             |_/    '''
+        </pre>
+      </div>
+    </div>
+  </body>
+</html>

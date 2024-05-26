@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PlayTech :DidYourTurtleWin</title>
+    <style>
+      body {
+        background-color: black;
+        margin: 0; /* Remove default margin */
+        padding: 0; /* Remove default padding */
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between; /* Align items to both ends */
+        align-items: center;
+        padding: 15px 25px; /* Add padding for spacing */
+      }
+
+      h1 {
+        color: aliceblue;
+        margin: 0; /* Remove default margin */
+      }
+
+      button {
+        font-family: var(--font-title);
+        font-size: 1rem;
+        background-color: white;
+        color: black;
+        padding: 8px 15px; /* Add padding for button size */
+        border: none; /* Remove default border */
+        cursor: pointer; /* Add cursor pointer */
+      }
+      .glow-on-hover { 
+width: 220px; 
+height: 60px; 
+border: none; 
+outline: none; 
+color: #fff; 
+background: #111; 
+cursor: pointer; 
+position: relative; 
+z-index: 0; 
+border-radius: 10px; 
+overflow: hidden; 
+} 
+.glow-on-hover:before  { 
+content: ''; 
+background: linear-gradient(45deg, #ff0000, #00ffd5, #002bff, black); 
+position: absolute; 
+top: -2px; 
+left: -2px; 
+background-size: 400%; 
+z-index: -1; 
+filter: blur(5px); 
+width: calc(100% + 4px); 
+height: calc(100% + 4px); 
+animation: glowing 20s linear infinite; 
+} 
+@keyframes glowing { 
+0% { 
+  background-position: 0 0; 
+} 
+50% { 
+  background-position: 400% 0; 
+} 
+100% { 
+  background-position: 0 0; 
+} 
+} 
+.glow-on-hover:active {
+color: #000; 
+} 
+.glow-on-hover:active:after { 
+background: transparent; 
+} 
+
+      .container {
+        display: flex;
+        flex-wrap: wrap; /* Allow boxes to wrap */
+        justify-content: space-between; /* Align boxes evenly */
+        padding: 20px; /* Add padding around boxes */
+      }
+
+      .box {
+        height: 700px;
+        width: 100%; /* Set box width */
+        padding: 20px; /* Add padding inside boxes */
+        background-color: rgb(0, 0, 0);
+        border: 0.4px solid rgb(255, 255, 255); /* Add border */
+        margin-bottom: 20px; /* Add space between boxes */
+      }
+
+      .box p {
+        color: #0dd3da;
+        margin: 0; /* Remove default margin */
+      }
+      .box pre{
+        color: aliceblue;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>CODE</h1>
+      <div>
+        <button class="glow-on-hover" onclick="location.href='https://replit.com/@HemaniChauhan/didyourtrutlewin'">RUN</button>
+        <button class="glow-on-hover" onclick="location.href='didturtule_doc.html'">DOCUMENTATION</button>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="box">
+        <p>main.py </p>
+        <pre>
+            from turtle import Turtle, Screen
+            import random
+
+            is_race_on = False
+            screen = Screen()
+
+            screen.setup(width=500, height=400)
+            user_bet = screen.textinput(title="Make your bet", prompt="Which turtle will win the race? Enter a color: ")
+            colors = ["red", "orange", "yellow", "blue", "green", "purple"]
+            y_position = [-70, -40, -10, 20, 50, 80]
+            all_turtles = []
+
+            for t in range(0, 6):
+                new_turtle = Turtle(shape="turtle")
+                new_turtle.penup()
+                new_turtle.color(colors[t])
+                # timmy.goto(x=-230, y=-100)
+                #this was used before assigning diff turtles
+                # x= 500/2= 250 that will go beyond the screen and thus -230 and y = 400/2=200 but we have to shift it to a particular
+                # position not at center thus -100
+                new_turtle.goto(x=-230, y=y_position[t])
+                all_turtles.append(new_turtle)
+
+            if user_bet:
+                is_race_on = True
+
+            while is_race_on:
+                for turtle in all_turtles:
+                    #250-20=230 bcoz turtle is 40 pixel wide thus we will subtract half value of the turtle
+                    if turtle.xcor() > 230:
+                        is_race_on = False
+                        winning_color = turtle.pencolor()
+                        if winning_color == user_bet:
+                            print(f"You've won! The {winning_color} turtle is the winner.")
+                        else:
+                            print(f"You've lost! The {winning_color} turtle is the winner.")
+                    rand_distace = random.randint(0, 10)
+                    turtle.forward(rand_distace)
+
+            screen.exitonclick()
+        </pre>
+       </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PlayTech :Revolutionizing Learning for Game Developers</title>
+
+    <!-- CSS Link  -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="Home-Decor-Website-main\home-images\LOGO.jpg" />
+    <!-- Font Awesome CDN  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  </head>
+  <body>
+    
+    <header>
+      <nav>
+        <input type="checkbox" id="check" />
+        <label for="check" id="check-btn">
+          <i class="fas fa-bars"></i>
+        </label>
+       <div class="col"><a href="about.html"><img src="home-images/LOGO.jpg" alt="logo"/></a></div>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="Games.html">Games</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+      <div class="head">
+        <h1>PlayTech</h1><br/>
+        <h2>
+          Revolutionizing Learning for Game Developers <br />
+        </h2>
+        <h3>Plat IT!</h3><br/>
+        <button onclick="location.href='Games.html'">EXPLORE GAMES</button>
+      </div>
+    </header>
+
+    <!-- Site footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row1">
+          <div class="col-sm-12 col-md-6">
+            <h5>About</h5>
+            <p class="text-justify">PlayTech <i>Revolutionizing Learning for Game Developers</i> is an initiative to help the upcoming programmers with the code. PlayTech focuses on providing the most efficient code or snippets while playing games. We will help programmers build up concepts in different programming languages that include C, C++, Python, Java, HTML, CSS, Bootstrap, JavaScript, PHP and Algorithm.</p>
+          </div>
+
+          <div class="categories">
+            <h6>Categories</h6>
+            <ul class="footer-links">
+              <li><a href="https://www.geeksforgeeks.org/c-language-introduction/">C</a></li>
+              <li><a href="https://www.javatpoint.com/html-tutorial">HTML</a></li>
+              <li><a href="https://www.javatpoint.com/css-tutorial">CSS</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/User_interface_design">UI Design</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Java_(programming_language)">Java</a></li>
+              <li><a href="https://www.w3schools.com/js/">JavaScript</a></li>
+              <li><a href="https://www.geeksforgeeks.org/how-to-become-a-game-developer/">GameDevelopment</a></li>
+            </ul>
+          </div>
+
+          <div class="links">
+            <h6>Quick Links</h6>
+            <ul class="footer-links">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="Games.html">Games</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+        <hr>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+           <br> <p class="copyright-text">Copyright &copy; 2024 All Rights Reserved by 
+         <a href="index.html">PlayTech</a>.
+            </p>
+          </div>
+
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <ul class="social-icons">
+              <p>Reach us</p>
+              <li><a class="instagram" href="#"><i class="fa-brands fa-instagram"></i></a></li>
+              <li><a class="gmail" href="contact.html"><i class="fa-solid fa-square-envelope"></i></a></li>
+              <li><a class="github" href="https://github.com/hemani1910"><i class="fa-brands fa-github"></i></a></li>
+              <li><a class="linkedin" href="https://www.linkedin.com/in/hemani-chauhan/"><i class="fa-brands fa-linkedin-in"></i></a></li>   
+            </ul>
+          </div>
+        </div>
+      </div>
+</footer>
+    <script>
+      // JavaScript for responsive navigation
+      const checkBtn = document.getElementById('check');
+      const navUl = document.querySelector('header nav ul');
+
+      checkBtn.addEventListener('change', function () {
+        if (this.checked) {
+          navUl.classList.add('active');
+        } else {
+          navUl.classList.remove('active');
+        }
+      });
+    </script>
+  </body>
+</html>

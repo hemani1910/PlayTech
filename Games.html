@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Games</title>
+<style>
+    body {
+        display: grid;
+        place-items: center;
+        background-image: url(home-images/hero.jpg);
+        background-position: center;
+        background-size: cover;
+        position: relative; 
+    }
+    .main_home, h3 {
+        font-family: var(--font-title);
+        font-size: 1.2rem;
+        color: rgb(233, 228, 228);
+        text-align: right;
+        position: absolute;
+        top:2%;
+        right: 25px;
+    }
+    h3:hover {
+        color: #ff0000;
+    }        
+    h3::after {
+        content: "";
+        width: 0;
+        height: 2px;
+        display: block;
+        transition: 0.6s;
+        background-color: #00eeff;
+    }
+    h3:hover::after {
+        width: 100%;
+    }
+    /*  for the container div */
+    .container {
+      margin-top: 45%;
+      width: 85%;
+      overflow: hidden;
+      position: relative;
+      padding: 90px;
+    }
+    /*  for the message */
+.message {
+    color: azure;
+    position: absolute;
+    left: 50%; 
+    top: 60%; 
+    transform: translate(-50%, -50%); /* Center the message */
+    white-space: nowrap;
+    animation: flowMessage 20s linear infinite; /* Adjust duration as needed */
+}
+
+
+    /* Keyframes for the message animation */
+    @keyframes flowMessage {
+        0% { left: -100%; }
+        100% { left: 100%; }
+    }
+    /* Styles for the image buttons */
+    .image-button1,.image-button2,.image-button3,.image-button4,.image-button5 {
+      top: 20%;
+       margin-top: 55px;
+        transform: translateY(-50%);
+        display: inline-block;
+        width: 100px; 
+        height: 100px; 
+        background-color: #fff; 
+        margin: 10px;
+        cursor: pointer;
+        transition:ease-out transform 0.1s ;
+        animation: flowImage 20 sec linear infinite;
+    }
+    @keyframes flowImage {
+        0% { left: -100%; }
+        100% { left: 100%; }
+    }
+    .image-button1 img,.image-button2 img,.image-button3 img, .image-button4 img, .image-button5 img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .image-button1:hover,.image-button2:hover,.image-button3:hover,.image-button4:hover,.image-button5:hover {
+        transform: scale(1.1); /* Adjust scaling factor as needed */
+    }
+
+    /* Adjust positioning of image buttons */
+    .image-button1 { left: 5%; }
+    .image-button2 { left: 25%; }
+    .image-button3 { left: 45%; }
+    .image-button4 { left: 65%; }
+    .image-button5 { left: 85%; }
+    @keyframes flowImage {
+        0% { left: -100%; }
+        100% { left: 100%; }
+    }
+
+    /* Styles for additional divs */
+.additional-divs {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 58%;
+    top: 15%;
+}
+
+.additional-div {
+    width: 100px; 
+    height: 140px; 
+    cursor: pointer; /* Added cursor */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.additional-div img {
+    max-width: 130%;
+    max-height: 130%;
+    transition: transform 0.4s; /* Added transition for smooth hover effect */
+}
+
+.additional-div:hover img {
+    transform: scale(1.23); /* Adjust scaling factor as needed */
+    box-shadow: 0 0 20px 0px rgb(0, 238, 255);
+}
+
+.additional-div p {
+    align-content: center;
+    font-size: large;
+    margin-left: 5%;
+    color: white;
+}
+
+</style>
+</head>
+<body>
+    <div class="main_home">
+        <a href="index.html"><h3>Home</h3></a>
+    </div> 
+    <!-- Additional divs -->
+    <div class="additional-divs">
+        <div class="additional-div" onclick="location.href='minesweeper.html'">
+            <div>
+                <img src="images/minesweeper.png" alt="Minesweeper">
+                <p>Minesweeper</p>
+            </div>
+        </div>
+        <div class="additional-div" onclick="location.href='rockpaper.html'">
+            <div>
+                <img src="images/rock,_paper_larger.jpg" alt="Rock Paper">
+                <p>Rock Paper Scissor</p>
+            </div>
+        </div>
+        <div class="additional-div" onclick="location.href='snake.html'">
+            <div>
+                <img src="images/snake-game.jpeg" alt="Snake Game">
+                <p>Snake Game</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Duplicate additional divs below -->
+    <div class="additional-divs" style="top: 50%;">
+        <div class="additional-div" onclick="location.href='didyourturtlewin.html'">
+            <div>
+                <img src="images/turtule.jpg" alt="Turtle">
+                <p> Did your Turtle win?</p>
+            </div>
+        </div>
+        <div class="additional-div" onclick="location.href='hangman.html'">
+            <div>
+                <img src="images/hangman.jpg" alt="Hangman">
+                <p>Hangman</p>
+            </div>
+        </div>
+        <div class="additional-div" onclick="location.href='sketchwithpy.html'">
+            <div>
+                <img src="images/sketch.jpg" alt="Sketch">
+                <p>Sketch with python</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="message">
+            EXPLORE OUR NEW GAME COLLECTION!
+        
+        <!-- Image buttons -->
+        <div class="image-button1" onclick="location.href='minesweeper.html'" >
+            <img src="images/minesweeper.png" alt="Minesweeper">
+        </div>
+        <div class="image-button2" onclick="location.href='rockpaper.html'">
+            <img src="images/rock,_paper_larger.jpg" alt="Rock Paper">
+        </div>
+        <div class="image-button3" onclick="location.href='snake.html'">
+            <img src="images/snake-game.jpeg" alt="Snake Game">
+        </div>
+        <div class="image-button4" onclick="location.href='hangman.html'">
+            <img src="images/hangman.jpg" alt="Hangman">
+        </div>
+        <div class="image-button5" onclick="location.href='didyourturtlewin.html'">
+            <img src="images/turtule.jpg" alt="Turtle">
+        </div>
+    </div>
+</body>
+</html>

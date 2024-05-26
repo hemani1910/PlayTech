@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PlayTech :Snake</title>
+    <style>
+      body {
+        background-color: black;
+        margin: 0; /* Remove default margin */
+        padding: 0; /* Remove default padding */
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between; /* Align items to both ends */
+        align-items: center;
+        padding: 15px 25px; /* Add padding for spacing */
+      }
+
+      h1 {
+        color: aliceblue;
+        margin: 0; /* Remove default margin */
+      }
+
+      button {
+        font-family: var(--font-title);
+        font-size: 1rem;
+        background-color: white;
+        color: black;
+        padding: 8px 15px; /* Add padding for button size */
+        border: none; /* Remove default border */
+        cursor: pointer; /* Add cursor pointer */
+      }
+      .glow-on-hover { 
+width: 220px; 
+height: 60px; 
+border: none; 
+outline: none; 
+color: #fff; 
+background: #111; 
+cursor: pointer; 
+position: relative; 
+z-index: 0; 
+border-radius: 10px; 
+overflow: hidden; 
+} 
+.glow-on-hover:before  { 
+content: ''; 
+background: linear-gradient(45deg, #ff0000, #00ffd5, #002bff, black); 
+position: absolute; 
+top: -2px; 
+left: -2px; 
+background-size: 400%; 
+z-index: -1; 
+filter: blur(5px); 
+width: calc(100% + 4px); 
+height: calc(100% + 4px); 
+animation: glowing 20s linear infinite; 
+} 
+@keyframes glowing { 
+0% { 
+  background-position: 0 0; 
+} 
+50% { 
+  background-position: 400% 0; 
+} 
+100% { 
+  background-position: 0 0; 
+} 
+} 
+.glow-on-hover:active {
+color: #000; 
+} 
+.glow-on-hover:active:after { 
+background: transparent; 
+} 
+
+      .container {
+        display: flex;
+        flex-wrap: wrap; /* Allow boxes to wrap */
+        justify-content: space-between; /* Align boxes evenly */
+        padding: 20px; /* Add padding around boxes */
+      }
+
+      .box {
+        height: 900px;
+        width: 45%; /* Set box width */
+        padding: 20px; /* Add padding inside boxes */
+        background-color: rgb(0, 0, 0);
+        border: 0.4px solid rgb(255, 255, 255); /* Add border */
+        margin-bottom: 20px; /* Add space between boxes */
+      }
+
+      .box p {
+        color: #0dd3da;
+        margin: 0; /* Remove default margin */
+      }
+      .box pre{
+        color: aliceblue;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>CODE</h1>
+      <div>
+        <button class="glow-on-hover" onclick="location.href='https://replit.com/@HemaniChauhan/snakegame'">RUN</button>
+        <button class="glow-on-hover" onclick="location.href='snake_doc.html'">DOCUMENTATION</button>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="box">
+        <p>main.py </p>
+        <pre>
+            from turtle import Turtle, Screen
+            from snake import Snake
+            from food import Food
+            from scoreboard import Scoreboard
+            import time
+
+            screen = Screen()
+            screen.setup(width=600, height=600)
+            screen.bgcolor("black")
+            screen.title("My Snake Game")
+            screen.tracer(0)
+
+            snake = Snake()
+            food = Food()
+            scoreboard = Scoreboard()
+
+            screen.listen()
+            screen.onkey(snake.up, "Up")
+            screen.onkey(snake.down, "Down")
+            screen.onkey(snake.left, "Left")
+            screen.onkey(snake.right, "Right")
+
+            game_is_on = True
+            while game_is_on:
+            screen.update()
+            time.sleep(0.1)
+
+            snake.move()
+
+            # detect collision with food
+            if snake.head.distance(food) < 15:
+                food.refresh()
+                snake.extend()
+                scoreboard.increase_score()
+
+            # detect collision with wall
+            if snake.head.xcor() > 280 or snake.head.xcor() < -280 
+            or snake.head.ycor() > 280 or snake.head.ycor() < -280:
+                game_is_on = False
+                scoreboard.game_over()
+
+            # detect collision with wall
+            for segment in snake.segments[1:]:
+                if snake.head.distance(segment) < 10:
+                    game_is_on = False
+                    scoreboard.game_over()
+                # if segment == snake.head:
+                #     pass
+                # elif snake.head.distance(segment) < 10:
+                #     game_is_on = False
+                #     scoreboard.game_over()
+
+            screen.exitonclick()
+</pre>
+       
+      </div>
+      <div class="box">
+        <p>scoreboard.py</p>
+        <pre>
+            from turtle import Turtle
+            ALIGNMENT = "center"
+            FONT = ("Arial", 20, "normal")
+
+
+            class Scoreboard(Turtle):
+                def _init_(self):
+                    super()._init_()
+                    self.score = 0
+                    self.color("white")
+                    self.penup()
+                    self.goto(0,270)
+                    self.hideturtle()
+                    self.update_scoreboard()
+
+                def update_scoreboard(self):
+                    self.write(f"Score: {self.score}", align=ALIGNMENT, font=FONT)
+
+                def game_over(self):
+                    self.goto(0,0)
+                    self.write("GAME OVER", align=ALIGNMENT, font=FONT)
+
+                def increase_score(self):
+                    self.score += 1
+                    self.clear()
+                    self.update_scoreboard()    
+        </pre>
+      </div>
+      <div class="box">
+        <p>snake.py</p>
+        <pre>
+            from turtle import Turtle
+
+            STARTING_POSITION = [(0, 0), (-20, 0), (-40, 0)]
+            MOVE_DISTANCE = 20
+            UP = 90
+            DOWN = 270
+            LEFT = 180
+            RIGHT = 0
+
+            class Snake():
+                def _init_(self):
+                    self.segments = []
+                    self.create_snake()
+                    self.head = self.segments[0]
+
+                def create_snake(self):
+                    for position in STARTING_POSITION:
+                        self.add_segment(position)
+
+                def add_segment(self, position):
+                    new_segment = Turtle("square")
+                    new_segment.color("white")
+                    new_segment.penup()
+                    new_segment.goto(position)
+                    self.segments.append(new_segment)
+
+                def extend(self):
+                    # add a new segment
+                    self.add_segment(self.segments[-1].position())
+
+                def move(self):
+                    # for seg in segments:
+                    #     seg.forward(20)
+                    for seg_num in range(len(self.segments) - 1, 0, -1):  
+                    # start stop step
+                        new_x = self.segments[seg_num - 1].xcor()  
+                    # 2 then 1 then 0
+                        new_y = self.segments[seg_num - 1].ycor()
+                        self.segments[seg_num].goto(new_x, new_y)
+                    self.head.forward(MOVE_DISTANCE)
+                    # self.head.left(90)
+
+                def up(self):
+                    if self.head.heading() != DOWN:
+                        self.head.setheading(UP)
+
+                def down(self):
+                    if self.head.heading() != UP:
+                        self.head.setheading(DOWN)
+
+                def left(self):
+                    if self.head.heading() != RIGHT:
+                        self.head.setheading(LEFT)
+
+                def right(self):
+                    if self.head.heading() != LEFT:
+                        self.head.setheading(RIGHT)
+        </pre>
+      </div>
+      <div class="box">
+        <p>food.py</p>
+        <pre>
+            from turtle import Turtle
+            import random
+
+            class Food(Turtle):3
+                def _init_(self):
+                    super()._init_()
+                    self.shape("circle")
+                    self.penup()
+                    self.shapesize(stretch_len=0.5, stretch_wid=0.5)
+                    self.color("blue")
+                    self.speed("fastest")
+                    self.refresh()
+
+                def refresh(self):
+                    random_x = random.randint(-280, 280)
+                    random_y = random.randint(-280, 280)
+                    self.goto(random_x, random_y)
+        </pre>
+      </div>
+    </div>
+  </body>
+</html>

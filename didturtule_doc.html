@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOC: DidYourTurtleWin</title>
+    <style>
+      body {
+        background-color: black;
+        margin: 0; /* Remove default margin */
+        padding: 0; /* Remove default padding */
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between; /* Align items to both ends */
+        align-items: center;
+        padding: 15px 25px; /* Add padding for spacing */
+      }
+
+      h1 {
+        color: aliceblue;
+        margin: 0; /* Remove default margin */
+      }
+      .container {
+        display: flex;
+        flex-wrap: wrap; /* Allow boxes to wrap */
+        justify-content: space-between; /* Align boxes evenly */
+        padding: 20px; /* Add padding around boxes */
+      }
+
+      .box {
+        height: 600px;
+        width: 100%; /* Set box width */
+        padding: 20px; /* Add padding inside boxes */
+        background-color: rgb(0, 0, 0);
+        border: 0.4px solid rgb(255, 255, 255); /* Add border */
+        margin-bottom: 20px; /* Add space between boxes */
+      }
+
+      .box p {
+        color: #0dd3da;
+        margin: 0; /* Remove default margin */
+      }
+      .box pre{
+        color: aliceblue;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>DOCUMENTATION</h1>
+    </header>
+    <div class="container">
+      <div class="box">
+    <pre>
+        Documentation: Did your turtle win?
+
+        Description: This Python program simulates a turtle race where the user can bet on the winning turtle's color. 
+        The turtles move randomly, and the first turtle to reach the finish line wins the race.
+
+        Specifications:
+        - Uses the Turtle graphics library for visualization.
+        - Asks the user to bet on a turtle color.
+        - Creates six turtles of different colors and positions them at the starting line.
+        - Moves each turtle forward by a random distance in each iteration of the race.
+        - Ends the race when a turtle reaches the finish line (x-coordinate > 230).
+        - Prints the winning turtle's color and informs the user if they won or lost the bet.
+        
+        Components:
+        1. screen: Initializes the screen for the turtle race.
+        2. user_bet: Asks the user to bet on a turtle color.
+        3. colors: List of turtle colors available for betting.
+        4. y_position: List of y-coordinates for positioning the turtles vertically.
+        5. all_turtles: List to store all turtle objects.
+        6. Turtle Creation Loop:
+           - Creates a new turtle object for each color.
+           - Sets the turtle's position to the starting line.
+           - Appends the turtle object to the all_turtles list.
+        7. Betting Check:
+           - Checks if the user has placed a bet (user_bet is not empty).
+           - Starts the race if a bet is placed (is_race_on = True).
+        8. Race Loop:
+           - Moves each turtle forward by a random distance in each iteration.
+           - Checks if any turtle has crossed the finish line (x-coordinate > 230).
+           - Ends the race and determines the winning turtle's color.
+           - Prints the result of the race and the user's bet outcome.
+        9. screen.exitonclick(): Closes the turtle graphics window when clicked.
+        
+        Usage:
+        - Run the program and enter a color to bet on a turtle.
+        - Watch the turtle race and see if your bet wins.
+        - Click the screen to close the window after the race.
+        
+        Note: The program uses the turtle module, which opens a new graphics window. 
+        Close the window to exit the program after the race.
+    </pre>
+    </div>
+    </div>
+  </body>
+  </html>

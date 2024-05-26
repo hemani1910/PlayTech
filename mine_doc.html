@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOC:Minesweeper</title>
+    <style>
+      body {
+        background-color: black;
+        margin: 0; /* Remove default margin */
+        padding: 0; /* Remove default padding */
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between; /* Align items to both ends */
+        align-items: center;
+        padding: 15px 25px; /* Add padding for spacing */
+      }
+
+      h1 {
+        color: aliceblue;
+        margin: 0; /* Remove default margin */
+      }
+      .container {
+        display: flex;
+        flex-wrap: wrap; /* Allow boxes to wrap */
+        justify-content: space-between; /* Align boxes evenly */
+        padding: 20px; /* Add padding around boxes */
+      }
+
+      .box {
+        height: 470px;
+        width: 100%; /* Set box width */
+        padding: 20px; /* Add padding inside boxes */
+        background-color: rgb(0, 0, 0);
+        border: 0.4px solid rgb(255, 255, 255); /* Add border */
+        margin-bottom: 20px; /* Add space between boxes */
+      }
+
+      .box p {
+        color: #0dd3da;
+        margin: 0; /* Remove default margin */
+      }
+      .box pre{
+        color: aliceblue;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>DOCUMENTATION</h1>
+    </header>
+    <div class="container">
+      <div class="box">
+    <pre>
+      Documentation: MineSweeper 
+        Description: MineSweeper is a console-based game where the player uncovers squares on a grid, trying to avoid mines (represented by '*'). 
+        The game ends if the player uncovers a mine or successfully uncovers all squares without hitting a mine.
+
+        Specifications:
+        - The game uses ASCII art for grid representation.
+        - The player can choose to reveal a square or place a marker on a potential mine location.
+        - If a revealed square has no adjacent mines, neighboring squares are automatically revealed.
+        - The game ends if a mine is revealed or all non-mine squares are revealed.
+        - The player can choose to play again after winning or losing.
+        
+        Components:
+        1. reset(): Sets up the game by generating a grid with mines and initializing a grid for player's moves. Displays main menu for instructions or immediate play.
+        2. placeBomb(b): Places a bomb in a random location on the grid.
+        3. updateValues(rn, c, b): Increments adjacent squares' values when a bomb is placed.
+        4. zeroProcedure(r, c, k, b): Reveals all adjacent squares when a zero is revealed.
+        5. checkZeros(k, b, r, c): Checks for zeros in the grid and reveals adjacent squares accordingly.
+        6. marker(r, c, k): Places a marker on the given location.
+        7. printBoard(b): Prints the current state of the grid.
+        8. choose(b, k, startTime): Allows the player to choose a square or place a marker.
+        9. play(b, k, startTime): Main gameplay function, handles player moves, game progression, and end conditions.
+        
+        Usage:
+        - Run reset() to start the game.
+        - Follow on-screen instructions to play or view instructions.
+        - Choose squares to reveal or place markers to avoid mines.
+        - Win by revealing all non-mine squares or lose by revealing a mine.
+        - Play again option is available after winning or losing.
+        
+        Additional Functionality:
+        - clear(): Clears the console screen for a cleaner display.
+    </pre>
+      </div>
+    </div>
+  </body></html>

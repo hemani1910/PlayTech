@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOC:sketchwithpython</title>
+    <style>
+      body {
+        background-color: black;
+        margin: 0; /* Remove default margin */
+        padding: 0; /* Remove default padding */
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between; /* Align items to both ends */
+        align-items: center;
+        padding: 15px 25px; /* Add padding for spacing */
+      }
+
+      h1 {
+        color: aliceblue;
+        margin: 0; /* Remove default margin */
+      }
+      .container {
+        display: flex;
+        flex-wrap: wrap; /* Allow boxes to wrap */
+        justify-content: space-between; /* Align boxes evenly */
+        padding: 20px; /* Add padding around boxes */
+      }
+
+      .box {
+        height: 670px;
+        width: 100%; /* Set box width */
+        padding: 20px; /* Add padding inside boxes */
+        background-color: rgb(0, 0, 0);
+        border: 0.4px solid rgb(255, 255, 255); /* Add border */
+        margin-bottom: 20px; /* Add space between boxes */
+      }
+
+      .box p {
+        color: #0dd3da;
+        margin: 0; /* Remove default margin */
+      }
+      .box pre{
+        color: aliceblue;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>DOCUMENTATION</h1>
+    </header>
+    <div class="container">
+      <div class="box">
+    <pre>
+            Documentation: Sketch with python
+
+            Description: This Python program creates a simple drawing program using the Turtle graphics library. 
+            It allows the user to control a turtle using keyboard keys to move it forward, backward, and turn left or right. 
+            The user can also clear the screen and return the turtle to its starting position.
+
+            Specifications:
+            - Uses the Turtle graphics library for visualization.
+            - Creates a turtle named timmy and a screen for user interaction.
+            - Defines functions to move the turtle forward, backward, turn left, turn right, and clear the screen.
+            - Binds keyboard keys to these functions for user control.
+
+            Components:
+            1. timmy: Turtle object used for drawing.
+            2. screen: Screen object for user interaction.
+            3. move_forward(): Moves the turtle forward by 10 units.
+            4. move_backward(): Moves the turtle backward by 10 units.
+            5. turn_left(): Turns the turtle left by 10 degrees.
+            6. turn_right(): Turns the turtle right by 10 degrees.
+            7. clear_screen(): Clears the screen, resets the turtle's position, and puts the pen down for drawing.
+            8. Key Bindings:
+            - Uses screen.listen() to start listening for key events.
+            - Binds the "w" key to move_forward().
+            - Binds the "s" key to move_backward().
+            - Binds the "a" key to turn_left().
+            - Binds the "d" key to turn_right().
+            - Binds the "c" key to clear_screen().
+            9. screen.exitonclick(): Keeps the screen open until clicked, allowing the user to interact with the drawing program.
+
+            Usage:
+            - Run the program to open the drawing window.
+            - Use the following keys to control the turtle:
+            - "w" to move forward.
+            - "s" to move backward.
+            - "a" to turn left.
+            - "d" to turn right.
+            - "c" to clear the screen and reset the turtle's position.
+            - Click the screen to close the window and exit the program.
+
+            Note: The program provides a basic demonstration of using the Turtle graphics library for interactive drawing applications.
+            Adjustments can be made to customize the program further based on specific requirements.
+    </pre>
+      </div>
+    </div>
+  </body></html>

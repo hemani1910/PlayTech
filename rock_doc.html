@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOC:RockPaperScissor</title>
+    <style>
+      body {
+        background-color: black;
+        margin: 0; /* Remove default margin */
+        padding: 0; /* Remove default padding */
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between; /* Align items to both ends */
+        align-items: center;
+        padding: 15px 25px; /* Add padding for spacing */
+      }
+
+      h1 {
+        color: aliceblue;
+        margin: 0; /* Remove default margin */
+      }
+      .container {
+        display: flex;
+        flex-wrap: wrap; /* Allow boxes to wrap */
+        justify-content: space-between; /* Align boxes evenly */
+        padding: 20px; /* Add padding around boxes */
+      }
+
+      .box {
+        height: 800px;
+        width: 100%; /* Set box width */
+        padding: 20px; /* Add padding inside boxes */
+        background-color: rgb(0, 0, 0);
+        border: 0.4px solid rgb(255, 255, 255); /* Add border */
+        margin-bottom: 20px; /* Add space between boxes */
+      }
+
+      .box p {
+        color: #0dd3da;
+        margin: 0; /* Remove default margin */
+      }
+      .box pre{
+        color: aliceblue;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>DOCUMENTATION</h1>
+    </header>
+    <div class="container">
+      <div class="box">
+    <pre>
+      Documentation: Rock, Paper, Scissors Game
+
+      Description: This Python program implements a simple Rock, Paper, Scissors game. 
+      It allows the user to input their choice (Rock, Paper, or Scissors) and then randomly selects the computer's choice.
+      The game then compares the choices to determine the winner.
+
+      Specifications:
+      - The program uses ASCII art to represent the choices of Rock, Paper, and Scissors.
+      - The user inputs their choice as an integer (0 for Rock, 1 for Paper, 2 for Scissors).
+      - The computer's choice is randomly generated.
+      - The game compares the choices and displays the winner or a draw.
+
+      Working:
+      1. Import the random module for generating random numbers.
+      2. Define ASCII art for Rock, Paper, and Scissors.
+      3. Store the ASCII art in a list (game_images).
+      4. Prompt the user to input their choice.
+      5. Validate the user's input to ensure it is a valid integer between 0 and 2.
+      6. Display the user's choice using the corresponding ASCII art.
+      7. Generate a random choice for the computer.
+      8. Display the computer's choice using the corresponding ASCII art.
+      9. Compare the user's choice with the computer's choice to determine the winner:
+        - Rock beats Scissors, Scissors beats Paper, Paper beats Rock.
+        - Display the result (win, lose, or draw) to the user.
+
+      Example Usage:
+      - User inputs 1 (Paper).
+      - Computer randomly chooses 2 (Scissors).
+      - Output:
+        
+        You chose:
+            ___
+        ---'   _)_
+                  __)
+                  ___)
+                ___)
+        ---.____)
+
+        Computer chose:
+            ___
+        ---'   _)_
+                  __)
+              ____)
+              (__)
+        ---._(__)
+
+        You lose!
+    </pre>
+      </div>
+    </div>
+  </body></html>

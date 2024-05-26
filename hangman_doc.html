@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOC:Hangman</title>
+    <style>
+      body {
+        background-color: black;
+        margin: 0; /* Remove default margin */
+        padding: 0; /* Remove default padding */
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between; /* Align items to both ends */
+        align-items: center;
+        padding: 15px 25px; /* Add padding for spacing */
+      }
+
+      h1 {
+        color: aliceblue;
+        margin: 0; /* Remove default margin */
+      }
+      .container {
+        display: flex;
+        flex-wrap: wrap; /* Allow boxes to wrap */
+        justify-content: space-between; /* Align boxes evenly */
+        padding: 20px; /* Add padding around boxes */
+      }
+
+      .box {
+        height: 600px;
+        width: 100%; /* Set box width */
+        padding: 20px; /* Add padding inside boxes */
+        background-color: rgb(0, 0, 0);
+        border: 0.4px solid rgb(255, 255, 255); /* Add border */
+        margin-bottom: 20px; /* Add space between boxes */
+      }
+
+      .box p {
+        color: #0dd3da;
+        margin: 0; /* Remove default margin */
+      }
+      .box pre{
+        color: aliceblue;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>DOCUMENTATION</h1>
+    </header>
+    <div class="container">
+      <div class="box">
+    <pre>
+        Documentation: Hangman Game
+
+        Description: This Python program implements a simple Hangman game where the player guesses letters to reveal a hidden word.
+         The player has a limited number of attempts (lives) to guess the word correctly. The game provides visual feedback using ASCII art for the hangman stages.
+        
+        Specifications:
+        - Uses a list of words (word_list) for the player to guess from.
+        - Randomly selects a word (chosen_word) from the word_list.
+        - Displays the length of the word as underscores (display) to represent hidden letters.
+        - Allows the player to guess a letter and updates the display accordingly.
+        - Tracks the player's remaining lives and ends the game if all lives are lost or the word is guessed correctly.
+        - Prints ASCII art for each stage of the hangman as the player makes incorrect guesses.
+        
+        Components:
+        1. word_list: List of words for the player to guess.
+        2. chosen_word: Randomly selected word from word_list for the current game.
+        3. word_length: Length of the chosen_word.
+        4. end_of_game: Boolean flag to indicate the end of the game.
+        5. lives: Number of lives the player has remaining.
+        6. display: List representing the current state of the word, with underscores for hidden letters.
+        7. Game Loop:
+           - Allows the player to guess a letter.
+           - Checks if the guessed letter is in the chosen_word and updates the display.
+           - Decreases the player's remaining lives if the guess is incorrect.
+           - Ends the game if all lives are lost or the word is guessed correctly.
+        8. ASCII Art:
+           - Uses ASCII art stored in stages from hangman_art.py to visually represent the hangman stages.
+           - Prints the ASCII art corresponding to the current number of lives remaining.
+        
+        Usage:
+        - Run the program to start a new game of Hangman.
+        - Guess letters to reveal the hidden word.
+        - Use the ASCII art to track your progress and remaining lives.
+        - Win the game by guessing the word correctly or lose by running out of lives.
+        
+        Note: This program provides a basic implementation of the Hangman game. 
+        You can expand it by adding more words to the word_list or customizing the ASCII art for a more engaging experience.
+    </pre>
+      </div>
+    </div>
+  </body></html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOC:Snake</title>
+    <style>
+      body {
+        background-color: black;
+        margin: 0; /* Remove default margin */
+        padding: 0; /* Remove default padding */
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between; /* Align items to both ends */
+        align-items: center;
+        padding: 15px 25px; /* Add padding for spacing */
+      }
+
+      h1 {
+        color: aliceblue;
+        margin: 0; /* Remove default margin */
+      }
+      .container {
+        display: flex;
+        flex-wrap: wrap; /* Allow boxes to wrap */
+        justify-content: space-between; /* Align boxes evenly */
+        padding: 20px; /* Add padding around boxes */
+      }
+
+      .box {
+        height: 700px;
+        width: 100%; /* Set box width */
+        padding: 20px; /* Add padding inside boxes */
+        background-color: rgb(0, 0, 0);
+        border: 0.4px solid rgb(255, 255, 255); /* Add border */
+        margin-bottom: 20px; /* Add space between boxes */
+      }
+
+      .box p {
+        color: #0dd3da;
+        margin: 0; /* Remove default margin */
+      }
+      .box pre{
+        color: aliceblue;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>DOCUMENTATION</h1>
+    </header>
+    <div class="container">
+      <div class="box">
+    <pre>
+        Documentation: Snake Game
+
+        Description: This Python program implements a simple Snake game using the Turtle graphics library. 
+        The player controls a snake that moves around the screen, eating food to grow longer. The game ends if the snake runs into the walls or itself.
+
+        Components:
+        1. Snake Class:
+        - Represents the snake in the game.
+        - segments: List of turtle segments making up the snake.
+        - head: Reference to the first segment (head) of the snake.
+        - Methods:
+            - create_snake: Creates the initial segments of the snake.
+            - add_segment: Adds a new segment to the snake.
+            - extend: Extends the snake by adding a new segment.
+            - move: Moves the snake forward by one segment.
+
+        2. Food Class:
+        - Represents the food that the snake eats.
+        - Inherits from the Turtle class.
+        - Methods:
+            - refresh: Moves the food to a random position on the screen.
+
+        3. Scoreboard Class:
+        - Displays the player's score and game over message.
+        - Methods:
+            - update_scoreboard: Updates the scoreboard with the current score.
+            - game_over: Displays the game over message.
+            - increase_score: Increases the player's score.
+
+        4. Main Game Loop:
+        - Sets up the game screen and initializes objects (snake, food, scoreboard).
+        - Listens for keyboard input to control the snake's movement.
+        - Updates the screen and moves the snake in each iteration of the game loop.
+        - Checks for collisions with the food, walls, and itself.
+        - Ends the game if a collision occurs, displaying the game over message.
+
+        Usage:
+        - Run the program to start the Snake game.
+        - Use the arrow keys (up, down, left, right) to control the snake's direction.
+        - Eat the food to grow the snake and increase your score.
+        - Avoid running into the walls or the snake itself.
+        - The game ends when the snake collides, and the final score is displayed.
+
+        Note: This is a basic implementation of the Snake game. 
+        You can customize the game by changing the colors, speed, or adding new features to make it more challenging and enjoyable.
+    </pre>
+      </div>
+    </div>
+  </body></html>
